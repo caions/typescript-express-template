@@ -7,8 +7,7 @@ const express_1 = require("express");
 const multer_1 = require("./config/multer");
 const multer_2 = __importDefault(require("multer"));
 const routes = express_1.Router();
-routes.post('/teste', multer_2.default(multer_1.multerConfig).single('file'), (request, response) => {
-    console.log(request.file);
+routes.post('/upload', multer_2.default(multer_1.multerConfig).single('file'), (request, response) => {
     return response.json(request.file);
 });
 exports.default = routes;

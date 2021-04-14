@@ -11,11 +11,11 @@ exports.multerConfig = {
             callback(null, path_1.resolve(__dirname, '..', '..', 'uploads'));
         },
         filename: (request, file, callback) => {
-            crypto_1.randomBytes(16, (error, hash) => {
+            crypto_1.randomBytes(5, (error, hash) => {
                 if (error) {
                     callback(error, file.filename);
                 }
-                const filename = `${file.originalname}`;
+                const filename = `${hash}-${file.originalname}`;
                 callback(null, filename);
             });
         },
